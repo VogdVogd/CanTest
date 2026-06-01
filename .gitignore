@@ -1,0 +1,54 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+.utmp/
+[Oo]bj/
+[Bb]uild
+[Bb]uilds
+/[Ll]ibrary/
+/[Ll]ogs/
+sysinfo.txt
+*.stackdump
+/Assets/AssetStoreTools*
+*.apk
+*.aab
+*.tga
+*.tif
+*.unitypackage
+UnityConnectSettings.asset
+ProjectSettings.asset
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+*.pidb.meta
+/*.user
+/*.unityproj
+/*.booproj
+.consulo/
+/*.tmp
+/*.svd
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+*.sln
+LightingData.asset
+
+# Articy Plugin
+# =====================================
+Assets/ArticyImporter/Content/Generated/
+ProjectSettings/SceneTemplateSettings.json
+UserSettings/Layouts/default-2021.dwlt
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
