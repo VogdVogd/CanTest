@@ -12,8 +12,8 @@ public class CanMode
 {
     const byte GS_USB_BREQ_MODE = 2;
 
-    const uint GS_CAN_MODE_START = 0;
-    const uint GS_CAN_MODE_RESET = 1;
+    const uint GS_CAN_MODE_START = 1;
+    const uint GS_CAN_MODE_RESET = 0;
 
     const uint GS_CAN_MODE_NORMAL = 0;
     const uint GS_CAN_MODE_LOOP_BACK = 1;
@@ -25,29 +25,30 @@ public class CanMode
         public uint flags;
     }
 
-    public static void EnableLoopMode(UsbDevice device, bool flag)
+    public static void EnableLoopMode(UsbDevice device)
     {
-        Debug.Log($"Start set loop modewith flag {flag}:");
+        Debug.Log($"Start set loop");
 
-        SetMode(device, GS_CAN_MODE_LOOP_BACK, flag ? GS_CAN_MODE_START : GS_CAN_MODE_RESET);
+        SetMode(device, GS_CAN_MODE_START, GS_CAN_MODE_LOOP_BACK);
     }
 
     public static void SetNormalMode(UsbDevice device)
     {
         Debug.Log($"Start set normal mode:");
 
-        SetMode(device, GS_CAN_MODE_NORMAL, GS_CAN_MODE_START);
+        SetMode(device, GS_CAN_MODE_START, GS_CAN_MODE_NORMAL);
     }
 
     public static void SetModeReset(UsbDevice device)
     {
         Debug.Log($"Reset:");
 
-        SetMode(device, GS_CAN_MODE_NORMAL, GS_CAN_MODE_RESET);
+        SetMode(device, GS_CAN_MODE_RESET, GS_CAN_MODE_NORMAL);
     }
 
     private static void SetMode(UsbDevice device, uint mode, uint flags)
     {
+        Debug.Log($"SetMode mode:{mode}, flags:{flags}");
         GsDeviceMode deviceMode = new GsDeviceMode
         {
             mode = mode,

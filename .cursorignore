@@ -1,0 +1,118 @@
+# Игнорировать всё
+*
+
+# Не игнорировать содержимое папки Scripts
+!Assets/
+!Assets/Scripts/
+!Assets/Scripts/**
+
+!Assets/Editor/
+!Assets/Editor/Scripts/
+!Assets/Editor/Scripts/**
+
+!Assets/Definitions/
+!Assets/Definitions/**
+
+!Assets/Prefabs/
+!Assets/Prefabs/**
+
+!Assets/Resources/
+!Assets/Resources/**
+
+!Assets/Scenes/
+!Assets/Scenes/**
+
+!Assets/Materials/
+!Assets/Materials/**
+
+!Assets/TestLogs/
+!Assets/TestLogs/**
+
+# Игнорировать мета-файлы
+*.meta
+
+# Intellij IDEA
+.idea
+*.DotSettings.user
+
+# Visual Studio
+.vs
+
+# Unity
+/[Uu]ser[Ss]ettings
+/Library
+/Out
+/Temp
+/obj
+/UnityPackageManager
+/Builds
+/Data
+/Assets/Local
+/Assets/Catalogs
+/Assets/Catalogs.meta
+/Assets/AssetBundles
+/Assets/Scripts/Local
+/Assets/Scripts/Local.meta
+/Assets/StreamingAssets/clickHouse-journal
+/Assets/StreamingAssets/clickHouse-journal.meta
+/Assets/NpcBases/NpcBasesHash.map
+/Assets/NpcBases/NpcBasesHash.map.meta
+
+# Различные сборки
+AllAssembly.csproj
+CharactersAssembly.csproj
+NavMeshComponentsEditorAssembly.csproj
+Tests.csproj
+Unity.RenderPipelines.Lightweight.Editor.csproj
+Unity.RenderPipelines.Lightweight.Editor.Tests.csproj
+Unity.RenderPipelines.Lightweight.Runtime.csproj
+Unity.RenderPipelines.Lightweight.Runtime.Tests.csproj
+
+prototype00.sln
+Packages/MSTest.TestAdapter.1.3.2/
+Packages/MSTest.TestFramework.1.3.2/
+/*.csproj
+/*.sln
+*.csproj.user
+/*.DotSettings.user
+
+/Tools/**/bin
+/Tools/**/obj
+/Tools/**/packages
+
+
+/Tools/TestOutput
+
+/Logs/
+pre-commit.log
+/.vsconfig
+
+/Defs
+
+/Assets/Scenes/UiScene.unity
+/Assets/Scenes/UiScene.unity.meta
+
+Assets/Plugins/Zenject/Source/Zenject.csproj.meta
+
+.DS_Store
+
+/.vscode
+
+# l10n spreadsheet sync credentials 
+/Assets/Plugins/Editor/GoogleApis/credentials
+
+# battle statistics tool
+/Assets/Tests/StatisticTest/.Dev/
+/Assets/Tests/StatisticTest/.DevOut/
+/Assets/Tests/SandBoxScenarios/.StatisticTest/
+
+# Builtin resources files used by BaseDataOnSsd.cs and generating by ServerSync.cs
+/Assets/Resources/UnityResourcesCache/
+/Assets/Resources/UnityResourcesCache.meta
+
+.fake
+
+!set_version.py
+
+# Не игнорировать сам файл .cursorignore
+!.cursorignore
