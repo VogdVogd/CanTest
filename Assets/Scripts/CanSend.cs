@@ -57,14 +57,14 @@ public class CanSend
         frame.data[7] = 8;
 
         byte[] buffer = CanStructToBytes.StructToBytes(frame);
-
+        /*
         if (buffer.Length > 0)
         {
             Debug.LogError(
                 $"RAW Send ({buffer.Length}): " +
                 BitConverter.ToString(buffer, 0, buffer.Length));
         }
-
+        */
         // Send
         ErrorCode ec = writer.Write(
             buffer,

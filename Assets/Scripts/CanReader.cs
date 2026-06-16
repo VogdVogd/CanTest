@@ -47,14 +47,14 @@ public class CanReader : IDisposable
 
                 if (ec != ErrorCode.None || bytesRead <= 0)
                     continue;
-
+                /*
                 if (bytesRead > 0)
                 {
                     Debug.LogError(
                         $"RAW Read ({bytesRead}): " +
                         BitConverter.ToString(buffer, 0, bytesRead));
                 }
-
+                */
                 int offset = 0;
 
                 while (offset + frameSize <= bytesRead)
@@ -74,7 +74,7 @@ public class CanReader : IDisposable
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Read error: " + ex.Message);
+                Debug.LogError("Read error: " + ex.Message);
                 await Task.Delay(200);
             }
         }

@@ -10,16 +10,48 @@ using UnityEngine.UI;
 
 public class LibUsbDotNetTest : MonoBehaviour
 {
-    [SerializeField] private Button _button;
+    [SerializeField] private Button _initButton;
+    [SerializeField] private Button _sendButton;
 
     private UsbDevice _device;
     private CanReader _canReader;
 
     private void Start()
     {
-        _button.onClick.AddListener(Send);
+        _sendButton.onClick.AddListener(Send);
+        _initButton.onClick.AddListener(Init);
+    }
+
+    private void OnDestroy()
+    {
+        Dispose();
+    }
+
+    private void Dispose()
+    {
+        if (_canReader != null)
+            _canReader.Dispose();
+        if (_device != null)
+        {
+            CanOpenClose.CloseDevice(_device);
+            _device = null;
+        }
+    }
+
+    private void Send()
+    {
+        CanSend.Send(_device);
+    }
+
+    private void Init()
+    {
+        Dispose();
 
         _device = CanOpenClose.OpenDevice();
+
+        if (_device == null)
+            return;
+
         ShowDescriptors(_device);
         //CanMode.SetModeReset(_device);
         CanBitrate.SetBitTiming(_device);
@@ -28,18 +60,6 @@ public class LibUsbDotNetTest : MonoBehaviour
         _canReader = new CanReader(_device);
 
         CanReadClock.Read(_device);
-    }
-
-    private void OnDestroy()
-    {
-        _canReader.Dispose();
-        CanOpenClose.CloseDevice(_device);
-        _device = null;
-    }
-
-    private void Send()
-    {
-        CanSend.Send(_device);
     }
 
     private  void ShowDescriptors(UsbDevice device)
