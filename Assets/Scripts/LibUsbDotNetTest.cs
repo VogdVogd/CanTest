@@ -21,6 +21,7 @@ public class LibUsbDotNetTest : MonoBehaviour
 
         _device = CanOpenClose.OpenDevice();
         ShowDescriptors(_device);
+        //CanMode.SetModeReset(_device);
         CanBitrate.SetBitTiming(_device);
         //CanMode.EnableLoopMode(_device, false);
         CanMode.SetNormalMode(_device);

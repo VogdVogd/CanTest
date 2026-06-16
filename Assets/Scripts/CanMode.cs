@@ -16,7 +16,8 @@ public class CanMode
     const uint GS_CAN_MODE_RESET = 0;
 
     const uint GS_CAN_MODE_NORMAL = 0;
-    const uint GS_CAN_MODE_LOOP_BACK = 1;
+    const uint GS_CAN_MODE_LOOP_BACK = 1 << 1;
+    const uint GS_CAN_MODE_ONE_SHOT = 1 << 3;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct GsDeviceMode
@@ -32,11 +33,15 @@ public class CanMode
         SetMode(device, GS_CAN_MODE_START, GS_CAN_MODE_LOOP_BACK);
     }
 
-    public static void SetNormalMode(UsbDevice device)
+    public static void SetNormalMode(UsbDevice device, bool oneShot = true)
     {
-        Debug.Log($"Start set normal mode:");
+        Debug.Log($"Start set normal mode (oneShot={oneShot}):");
 
-        SetMode(device, GS_CAN_MODE_START, GS_CAN_MODE_NORMAL);
+        uint flags = GS_CAN_MODE_NORMAL;
+        if (oneShot)
+            flags |= GS_CAN_MODE_ONE_SHOT;
+
+        SetMode(device, GS_CAN_MODE_START, flags);
     }
 
     public static void SetModeReset(UsbDevice device)
