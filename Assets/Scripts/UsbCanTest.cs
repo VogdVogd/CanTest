@@ -28,5 +28,11 @@ public class UsbCanTest : MonoBehaviour
     private void Init()
     {
         _proxy.Init();
+        _proxy.SetCallback(OnSomethingReceived);
+    }
+
+    private void OnSomethingReceived(uint id, byte[] data)
+    {
+        Debug.Log($"Received: {id}");
     }
 }

@@ -34,7 +34,7 @@ public class CanReader : IDisposable
     {
         byte[] buffer = new byte[512];
 
-        int frameSize = Marshal.SizeOf<CanSend.GsHostFrame>();
+        int frameSize = Marshal.SizeOf<GsHostFrame>();
 
         while (!token.IsCancellationRequested)
         {
@@ -47,14 +47,7 @@ public class CanReader : IDisposable
 
                 if (ec != ErrorCode.None || bytesRead <= 0)
                     continue;
-                /*
-                if (bytesRead > 0)
-                {
-                    Debug.LogError(
-                        $"RAW Read ({bytesRead}): " +
-                        BitConverter.ToString(buffer, 0, bytesRead));
-                }
-                */
+
                 int offset = 0;
 
                 while (offset + frameSize <= bytesRead)
@@ -63,7 +56,7 @@ public class CanReader : IDisposable
 
                     Array.Copy(buffer, offset, slice, 0, frameSize);
 
-                    var frame = CanStructToBytes.BytesToStruct<CanSend.GsHostFrame>(slice);
+                    var frame = CanStructToBytes.BytesToStruct<GsHostFrame>(slice);
 
                     OnFrameCatched(frame);
 
@@ -80,7 +73,7 @@ public class CanReader : IDisposable
         }
     }
 
-    private void OnFrameCatched(CanSend.GsHostFrame frame)
+    private void OnFrameCatched(GsHostFrame frame)
     {
         Debug.Log(
                 $"ID: 0x{frame.can_id:X} DLC:{frame.can_dlc} " +

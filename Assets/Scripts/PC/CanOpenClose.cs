@@ -9,9 +9,8 @@ public class CanOpenClose
     {
         UsbDevice device;
 
-        // CandleLight VID/PID
         UsbDeviceFinder finder =
-            new UsbDeviceFinder(0x1D50, 0x606F);
+            new UsbDeviceFinder(GsUsbConstants.Vid, GsUsbConstants.Pid);
 
         device = UsbDevice.OpenUsbDevice(finder);
 
@@ -21,7 +20,6 @@ public class CanOpenClose
             return null;
         }
 
-        // Configure device
         IUsbDevice wholeUsbDevice = device as IUsbDevice;
 
         if (wholeUsbDevice != null)
