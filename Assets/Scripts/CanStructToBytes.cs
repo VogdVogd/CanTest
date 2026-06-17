@@ -1,12 +1,5 @@
 using System;
-using System.IO.Ports;
-using System.Threading;
-using UnityEngine;
-using LibUsbDotNet;
-using LibUsbDotNet.Main;
 using System.Runtime.InteropServices;
-using LibUsbDotNet.Info;
-using UnityEngine.UI;
 
 public class CanStructToBytes
 {

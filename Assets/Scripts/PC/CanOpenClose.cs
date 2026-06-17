@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using LibUsbDotNet;
 using LibUsbDotNet.Main;
@@ -43,3 +44,4 @@ public class CanOpenClose
         Debug.Log("Device closed");
     }
 }
+#endif

@@ -1,15 +1,9 @@
-using System;
-using System.IO.Ports;
-using System.Threading;
 using UnityEngine;
-using LibUsbDotNet;
-using LibUsbDotNet.Main;
-using System.Runtime.InteropServices;
-using LibUsbDotNet.Info;
-using UnityEngine.UI;
+
 
 public class LibUsbDotNetTest : MonoBehaviour
 {
+    /*
     [SerializeField] private Button _initButton;
     [SerializeField] private Button _sendButton;
 
@@ -81,4 +75,5 @@ public class LibUsbDotNetTest : MonoBehaviour
             }
         }
     }
+    */
 }

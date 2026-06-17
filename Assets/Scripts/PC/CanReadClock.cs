@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using LibUsbDotNet;
 using LibUsbDotNet.Main;
@@ -56,3 +57,4 @@ public class CanReadClock
         Debug.Log($"CAN Clock: {bt.fclk_can}");
     }
 }
+#endif

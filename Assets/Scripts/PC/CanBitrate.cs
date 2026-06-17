@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using LibUsbDotNet;
 using LibUsbDotNet.Main;
@@ -54,3 +55,4 @@ public class CanBitrate
         Debug.Log(transferred);
     }
 }
+#endif

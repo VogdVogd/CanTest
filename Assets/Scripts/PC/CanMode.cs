@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.IO.Ports;
 using System.Threading;
@@ -79,3 +80,4 @@ public class CanMode
         Debug.Log(transferred);
     }
 }
+#endif

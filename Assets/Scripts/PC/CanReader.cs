@@ -1,21 +1,21 @@
+#if UNITY_EDITOR
 using System;
-using System.IO.Ports;
 using System.Threading;
 using UnityEngine;
 using LibUsbDotNet;
 using LibUsbDotNet.Main;
 using System.Runtime.InteropServices;
-using LibUsbDotNet.Info;
-using UnityEngine.UI;
 using System.Threading.Tasks;
 
 public class CanReader : IDisposable
 {
     private UsbEndpointReader _reader;
     private CancellationTokenSource _cts;
+    private Action<uint, byte[]> _callback;
 
-    public CanReader(UsbDevice device)
+    public CanReader(UsbDevice device, Action<uint, byte[]> callback)
     {
+        _callback = callback;
         _reader = device.OpenEndpointReader(ReadEndpointID.Ep01);
         _cts = new CancellationTokenSource();
 
@@ -86,5 +86,8 @@ public class CanReader : IDisposable
                 $"ID: 0x{frame.can_id:X} DLC:{frame.can_dlc} " +
                 $"Data: {BitConverter.ToString(frame.data, 0, frame.can_dlc)}" +
                 $"Echo: {frame.echo_id:X}") ;
+
+        _callback?.Invoke(frame.can_id, frame.data);
     }
 }
+#endif
